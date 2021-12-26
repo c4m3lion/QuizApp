@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/pages/game_menu.dart';
 import 'package:quizapp/usefull/my_colors.dart';
 
 class MainMenu extends StatelessWidget {
@@ -11,8 +10,7 @@ class MainMenu extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () => {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const GameMenu()))
+            Navigator.pushNamed(context, '/game'),
           },
           child: const Text(
             "Play",
