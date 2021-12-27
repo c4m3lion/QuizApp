@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-//hello
 import 'package:flutter/material.dart';
 import 'package:quizapp/pages/game_menu.dart';
 import 'package:quizapp/pages/loading.dart';
