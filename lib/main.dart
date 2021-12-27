@@ -9,7 +9,7 @@ import 'package:quizapp/pages/won_page.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/home',
+    initialRoute: '/',
     routes: {
       '/': (context) => Loading(),
       '/home': (context) => MainMenu(),

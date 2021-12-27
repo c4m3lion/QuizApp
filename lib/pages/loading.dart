@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:quizapp/usefull/my_network.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -9,20 +9,28 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getScoreBoard() async {
-    await Future.delayed(Duration(seconds: 3), () {
-      print("Hello!");
-    });
+  void getData() async {
+    await MyNetwork().getPerson();
+    print(MyNetwork.person.name);
+    setState(() {});
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(MyNetwork.person.name),
+          Text(MyNetwork.person.id.toString()),
+        ],
+      ),
+    );
   }
 }
