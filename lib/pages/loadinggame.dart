@@ -3,29 +3,26 @@ import 'package:quizapp/usefull/my_colors.dart';
 import 'package:quizapp/usefull/my_network.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class Loading extends StatefulWidget {
-  const Loading({Key? key}) : super(key: key);
+class LoadingGame extends StatefulWidget {
+  const LoadingGame({Key? key}) : super(key: key);
 
   @override
   _LoadingState createState() => _LoadingState();
 }
 
-class _LoadingState extends State<Loading> {
-  Map data = {};
-  void getData() async {
+class _LoadingState extends State<LoadingGame> {
+  void loadQuestion() async {
     await MyNetwork().getQuestion();
-    await Future.delayed(
-        const Duration(seconds: 2),
-        () => {
-              Navigator.pushReplacementNamed(context, "/home"),
-            });
-    setState(() {});
+    Navigator.pushReplacementNamed(context, '/game');
+    setState(() {
+      print("hellow");
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    getData();
+    loadQuestion();
   }
 
   @override

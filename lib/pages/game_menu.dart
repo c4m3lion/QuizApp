@@ -3,6 +3,7 @@ import 'package:quizapp/pages/lost_page.dart';
 import 'package:quizapp/pages/won_page.dart';
 import 'package:quizapp/usefull/my_card.dart';
 import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_network.dart';
 
 // ignore_for_file: prefer_const_constructors
 
@@ -14,8 +15,13 @@ class GameMenu extends StatefulWidget {
 }
 
 class _GameMenuState extends State<GameMenu> {
+  Question q = MyNetwork.question;
   @override
   Widget build(BuildContext context) {
+    void openpage({String n = "/lost"}) {
+      Navigator.pushReplacementNamed(context, n);
+    }
+
     return Scaffold(
       backgroundColor: MyColors.violet,
       appBar: AppBar(
@@ -25,40 +31,17 @@ class _GameMenuState extends State<GameMenu> {
       body: Column(
         children: [
           MyCard(
-            txt: "5+3=?",
+            txt: MyNetwork.question.question,
             myHeight: 200,
             myWidth: 400,
             myColor: MyColors.independence,
           ),
           SizedBox(height: 10.0),
-          InkWell(
-            onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const WonPage()))
-            },
-            child: MyCard(txt: "8"),
-          ),
-          InkWell(
-            onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LostPage()))
-            },
-            child: MyCard(txt: "3"),
-          ),
-          InkWell(
-            onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LostPage()))
-            },
-            child: MyCard(txt: "6"),
-          ),
-          InkWell(
-            onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LostPage()))
-            },
-            child: MyCard(txt: "0"),
-          ),
+          for (var i in q.answers)
+            InkWell(
+              onTap: () => {openpage(n: i == q.correctAns ? "/won" : "/lost")},
+              child: MyCard(txt: i),
+            ),
         ],
       ),
     );
