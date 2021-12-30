@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_datas.dart';
 import 'package:quizapp/usefull/my_network.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

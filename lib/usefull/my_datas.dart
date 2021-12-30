@@ -7,3 +7,9 @@ class MyColors {
   static const Color darkseagreen = Color(0xff80B192);
   static const Color lightgreen = Color(0xffA1E887);
 }
+
+class MyIcons {
+  static const String leaderBoard = "assets/icons/leaderboard-icon.png";
+  static const String loading = "assets/icons/loadingicon.png";
+  static const String logo = "assets/Ellipse 1.png";
+}

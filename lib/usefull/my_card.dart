@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_datas.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class MyCard extends StatelessWidget {

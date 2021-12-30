@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_datas.dart';
 import 'package:quizapp/usefull/my_network.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:math' as math;
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -10,7 +13,8 @@ class Loading extends StatefulWidget {
   _LoadingState createState() => _LoadingState();
 }
 
-class _LoadingState extends State<Loading> {
+class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
   Map data = {};
   void getData() async {
     await MyNetwork().getQuestion();
@@ -24,20 +28,33 @@ class _LoadingState extends State<Loading> {
 
   @override
   void initState() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    );
+    _controller.repeat();
     super.initState();
     getData();
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: SpinKitCubeGrid(
-          color: Colors.white,
-          size: 80.0,
+        child: RotationTransition(
+          turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+          child: Image(
+            image: AssetImage("assets/icons/loadingicon.png"),
+          ),
         ),
       ),
-      backgroundColor: MyColors.darkseagreen,
+      backgroundColor: MyColors.independence,
     );
   }
 }

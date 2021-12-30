@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/pages/main_menu.dart';
-import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_datas.dart';
 
 class LostPage extends StatelessWidget {
   const LostPage({Key? key}) : super(key: key);

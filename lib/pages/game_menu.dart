@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/pages/lost_page.dart';
 import 'package:quizapp/pages/won_page.dart';
 import 'package:quizapp/usefull/my_card.dart';
-import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_datas.dart';
 import 'package:quizapp/usefull/my_network.dart';
 
 // ignore_for_file: prefer_const_constructors

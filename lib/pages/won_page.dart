@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/usefull/my_colors.dart';
+import 'package:quizapp/usefull/my_datas.dart';
 
 class WonPage extends StatelessWidget {
   const WonPage({Key? key}) : super(key: key);
