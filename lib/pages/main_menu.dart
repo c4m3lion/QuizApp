@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 import 'package:flutter/material.dart';
 import 'package:quizapp/usefull/my_datas.dart';
 
@@ -34,35 +34,60 @@ class MainMenu extends StatelessWidget {
         ],
       ),
       //-----------------------------------------
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
+      drawer: SafeArea(
+        child: Container(
+          width: 200,
+          child: Drawer(
+            backgroundColor: MyColors.independence,
+            // Add a ListView to the drawer. This ensures the user can scroll
+            // through the options in the drawer if there isn't enough vertical
+            // space to fit everything.
+            child: ListView(
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.only(top: 30),
+              children: [
+                ListTile(
+                  leading: Icon(
+                    Icons.account_circle_outlined,
+                    color: MyColors.lightgreen,
+                    size: 40,
+                  ),
+                  title: const Text(
+                    'Profile',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.settings,
+                    color: MyColors.lightgreen,
+                    size: 40,
+                  ),
+                  title: const Text(
+                    'Setting',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+              ],
             ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
+          ),
         ),
       ),
       //mainmenu part play button and logo
