@@ -63,7 +63,7 @@ class _ScoreboardState extends State<Scoreboard> {
                   backgroundImage: NetworkImage(
                       "https://i.ytimg.com/vi/HC5xDOggYBU/hqdefault.jpg"),
                 ),
-                trailing: Text("#$index"),
+                trailing: Text("#" + (index + 1).toString()),
               ),
             ),
           );
