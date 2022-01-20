@@ -48,7 +48,7 @@ class _LoadingState extends State<Loading> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: Center(
         child: RotationTransition(
-          turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+          turns: Tween(begin: 1.0, end: 0.0).animate(_controller),
           child: Image(
             image: AssetImage("assets/icons/loadingicon.png"),
           ),

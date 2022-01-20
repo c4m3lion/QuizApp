@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizapp/pages/lost_page.dart';
-import 'package:quizapp/pages/won_page.dart';
 import 'package:quizapp/usefull/my_card.dart';
 import 'package:quizapp/usefull/my_datas.dart';
 import 'package:quizapp/usefull/my_network.dart';
@@ -37,11 +35,18 @@ class _GameMenuState extends State<GameMenu> {
             myColor: MyColors.independence,
           ),
           SizedBox(height: 10.0),
-          for (var i in q.answers)
-            InkWell(
-              onTap: () => {openpage(n: i == q.correctAns ? "/won" : "/lost")},
-              child: MyCard(txt: i),
+          Expanded(
+            child: ListView(
+              children: [
+                for (var i in q.answers)
+                  InkWell(
+                    onTap: () =>
+                        {openpage(n: i == q.correctAns ? "/won" : "/lost")},
+                    child: MyCard(txt: i),
+                  ),
+              ],
             ),
+          ),
         ],
       ),
     );

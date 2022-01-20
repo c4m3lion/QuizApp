@@ -104,7 +104,7 @@ class MainMenu extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () => {
-              Navigator.pushNamed(context, '/game'),
+              Navigator.pushNamed(context, '/loadinggame'),
             },
             child: const Text(
               "Play",

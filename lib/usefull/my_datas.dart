@@ -11,5 +11,5 @@ class MyColors {
 class MyIcons {
   static const String leaderBoard = "assets/icons/leaderboard-icon.png";
   static const String loading = "assets/icons/loadingicon.png";
-  static const String logo = "assets/Ellipse 1.png";
+  static const String logo = "assets/MentiX logo2.png";
 }
